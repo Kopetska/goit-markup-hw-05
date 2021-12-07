@@ -487,6 +487,7 @@ img {
   align-items: center;
   width: 170px;
   height: 92px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .groups {
   margin-right: 30px;
@@ -502,7 +503,8 @@ img {
   width: 106px;
   height: 60px;
   fill: #afb1b8;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .last {
   display: flex;
@@ -659,7 +661,6 @@ img {
   flex-wrap: wrap;
 }
 .basket {
-  position: relative;
   overflow: hidden;
   margin-top: 0px;
   margin-right: 30px;
@@ -668,7 +669,6 @@ img {
   width: 370px;
 }
 .basket-down {
-  position: relative;
   overflow: hidden;
   margin-top: 0px;
   margin-right: 30px;
@@ -677,7 +677,6 @@ img {
   width: 370px;
 }
 .basket-third {
-  position: relative;
   overflow: hidden;
   margin-top: 0px;
   margin-right: 0px;
@@ -686,7 +685,6 @@ img {
   width: 370px;
 }
 .basket-down-third {
-  position: relative;
   overflow: hidden;
   margin-top: 0px;
   margin-right: 0px;
@@ -695,7 +693,7 @@ img {
   width: 370px;
 }
 .basket-item {
-  display: block;
+  box-sizing: border-box;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .basket-item:hover,
@@ -703,13 +701,17 @@ img {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
+.box {
+  position: relative;
+  overflow: hidden;
+}
 .solution {
   position: absolute;
-  display: inline-block;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 173px;
+  bottom: 63px;
+  left: 25px;
   right: 24px;
   font-weight: 400;
   font-size: 18px;
@@ -720,26 +722,34 @@ img {
   color: var(--main-background-color);
   opacity: 0;
   margin: 0px;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(100%);
 }
 .overlay {
   position: absolute;
-  overflow: hidden;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: 370px;
   height: 294px;
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 0;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(100%);
 }
-.overlay:hover {
+.basket-item:hover .overlay {
   opacity: 1;
   transform: translateY(0);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
-.overlay:hover .solution {
+.basket-item:hover .solution {
   opacity: 1;
   transform: translateY(0);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .padding {
   position: relative;
